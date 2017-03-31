@@ -13,22 +13,16 @@ import java.util.LinkedHashMap;
 
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/test")
 public class ResourceController {
 
     private static final Logger LOG = LoggerFactory.getLogger(ResourceController.class);
 
-    @RequestMapping(path = "/", method = RequestMethod.GET)
-    public String test(HttpServletRequest request, HttpServletResponse response) {
-        LOG.info(request.getMethod() + " " + request.getRequestURI());
-        return "Hello World!";
-    }
-
-    @RequestMapping(path = "/json", method = RequestMethod.GET)
-    public LinkedHashMap<String, Object> testJson(HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping(path = "/sum", method = RequestMethod.POST)
+    public LinkedHashMap<String, Object> testCompute(HttpServletRequest request, HttpServletResponse response) {
         LOG.info(request.getMethod() + " " + request.getRequestURI());
         LinkedHashMap<String, Object> result = new LinkedHashMap<String, Object>();
-        result.put("msg", "Hello World!");
+        result.put("answer", 99999);
         return result;
     }
 
