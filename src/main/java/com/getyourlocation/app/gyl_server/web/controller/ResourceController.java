@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.LinkedHashMap;
 
 
@@ -20,9 +21,15 @@ public class ResourceController {
 
     @RequestMapping(path = "/sum", method = RequestMethod.POST)
     public LinkedHashMap<String, Object> testCompute(HttpServletRequest request, HttpServletResponse response) {
+        Enumeration enu=request.getParameterNames();
+        int sum = 0;
+        while(enu.hasMoreElements()){
+            String paraName=(String)enu.nextElement();
+            sum = sum + Integer.parseInt(request.getParameter(paraName));
+        }
         LOG.info(request.getMethod() + " " + request.getRequestURI());
         LinkedHashMap<String, Object> result = new LinkedHashMap<String, Object>();
-        result.put("answer", 99999);
+        result.put("answer", sum);
         return result;
     }
 
