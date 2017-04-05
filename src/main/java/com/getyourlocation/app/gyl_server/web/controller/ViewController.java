@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/")
 public class ViewController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ResourceController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(APIController.class);
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String index(HttpServletRequest request, HttpServletResponse response) {

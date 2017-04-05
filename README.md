@@ -12,7 +12,7 @@ Server of the localization system.
     $ python server.py
     ```
 
-3. The application should be available at http://localhost:8080
+3. The application should be available at http://localhost:8000/gyl
 
 ## License
 

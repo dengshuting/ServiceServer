@@ -11,7 +11,7 @@
     <packaging>war</packaging>
 
     <properties>
-        <server.port>8080</server.port>
+        <server.port>8000</server.port>
         <tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springframework.version>4.3.3.RELEASE</springframework.version>
@@ -21,6 +21,8 @@
         <slf4j.version>1.6.1</slf4j.version>
         <log4j.version>1.2.15</log4j.version>
         <datasource-dbcp.version>7.0.65</datasource-dbcp.version>
+        <commons-io.version>2.4</commons-io.version>
+        <commons-fileupload.version>1.3.2</commons-fileupload.version>
     </properties>
 
     <build>
@@ -31,7 +33,7 @@
                 <version>${tomcat7-maven-plugin.version}</version>
                 <configuration>
                     <port>${server.port}</port>
-                    <path>/</path>
+                    <path>/gyl</path>
                 </configuration>
             </plugin>
         </plugins>
@@ -179,6 +181,16 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${commons-fileupload.version}</version> <!-- makesure correct version here -->
         </dependency>
     </dependencies>
 
