@@ -51,28 +51,33 @@ public class APIController {
 
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
     public List<String> upload(
-        @RequestParam(value = "file") MultipartFile[] files,
+        @RequestParam(value = "file", required = true) MultipartFile[] files,
+        @RequestParam(value = "ext", required = false) String ext,
         HttpServletRequest request, HttpServletResponse response) {
         LOG.info(request.getMethod() + " " + request.getRequestURI());
 
         List<String> result = new ArrayList<String>();
         for (MultipartFile file : files) {
-            if (!file.getOriginalFilename().equals("")) {
-                String contentType = file.getContentType();
-                String extension = contentType.substring(contentType.indexOf("/") + 1);
-                String fileName = UUID.randomUUID().toString().replaceAll("-", "") + "." + extension;
-                String path = request.getSession().getServletContext().getRealPath(DIR_UPLOAD);
-                File targetFile = new File(path, fileName);
-                if (!targetFile.exists()) {
-                    targetFile.mkdirs();
-                }
-                try {
-                    file.transferTo(targetFile);  // Save to disk
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                result.add(request.getContextPath() + "/" + DIR_UPLOAD + "/" + fileName);
+            if (file.getOriginalFilename().equals("")) {
+                continue;
             }
+            String contentType = file.getContentType();
+            String extension = contentType.substring(contentType.indexOf("/") + 1);
+            if (extension.equals("octet-stream")) {
+                extension = ext;
+            }
+            String fileName = UUID.randomUUID().toString().replaceAll("-", "") + "." + extension;
+            String path = request.getSession().getServletContext().getRealPath(DIR_UPLOAD);
+            File targetFile = new File(path, fileName);
+            if (!targetFile.exists()) {
+                targetFile.mkdirs();
+            }
+            try {
+                file.transferTo(targetFile);  // Save to disk
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            result.add(request.getContextPath() + "/" + DIR_UPLOAD + "/" + fileName);
         }
         return result;
     }
