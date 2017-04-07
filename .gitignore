@@ -9,3 +9,4 @@ log.txt
 *.gz
 *.out
 *.tar
+upload_files/
