@@ -11,7 +11,7 @@
     <packaging>war</packaging>
 
     <properties>
-        <server.port>8000</server.port>
+        <server.port>8080</server.port>
         <tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springframework.version>4.3.3.RELEASE</springframework.version>
@@ -33,7 +33,7 @@
                 <version>${tomcat7-maven-plugin.version}</version>
                 <configuration>
                     <port>${server.port}</port>
-                    <path>/gyl</path>
+                    <path>/</path>
                 </configuration>
             </plugin>
         </plugins>

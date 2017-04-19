@@ -1,5 +1,6 @@
 package com.getyourlocation.app.gyl_server.web.controller;
 
+import com.getyourlocation.app.gyl_server.util.LogUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,8 +31,7 @@ public class APIController {
         @RequestParam(value = "x", defaultValue = "0") int x,
         @RequestParam(value = "y", defaultValue = "0") int y,
         HttpServletRequest request, HttpServletResponse response) {
-        LOG.info(request.getMethod() + " " + request.getRequestURI());
-
+        LogUtil.logReq(LOG, request);
         LinkedHashMap<String, Object> result = new LinkedHashMap<String, Object>();
         result.put("ans", x + y);
         return result;
@@ -42,8 +42,7 @@ public class APIController {
         @RequestParam(value = "x", defaultValue = "0") int x,
         @RequestParam(value = "y", defaultValue = "0") int y,
         HttpServletRequest request, HttpServletResponse response) {
-        LOG.info(request.getMethod() + " " + request.getRequestURI());
-
+        LogUtil.logReq(LOG, request);
         LinkedHashMap<String, Object> result = new LinkedHashMap<String, Object>();
         result.put("ans", x * y);
         return result;
@@ -54,8 +53,7 @@ public class APIController {
         @RequestParam(value = "file", required = true) MultipartFile[] files,
         @RequestParam(value = "ext", required = false) String ext,
         HttpServletRequest request, HttpServletResponse response) {
-        LOG.info(request.getMethod() + " " + request.getRequestURI());
-
+        LogUtil.logReq(LOG, request);
         List<String> result = new ArrayList<String>();
         for (MultipartFile file : files) {
             if (file.getOriginalFilename().equals("")) {

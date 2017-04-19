@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>GYL</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+    <form action="/api/sum" method="GET">
+        <div>
+            <label>x:</label>
+            <input type="number" name="x" />
+        </div>
+        <div>
+            <label>y:</label>
+            <input type="number" name="y" />
+        </div>
+        <div>
+            <button type="submit">Sum</button>
+        </div>
+    </form>
+
+    <br />
+
+    <form action="/api/product" method="POST">
+        <div>
+            <label>x:</label>
+            <input type="number" name="x" />
+        </div>
+        <div>
+            <label>y:</label>
+            <input type="number" name="y" />
+        </div>
+        <div>
+            <button type="submit">Product</button>
+        </div>
+    </form>
+
+    <br />
+
+    <form action="/api/upload" method="POST" enctype="multipart/form-data" >
+        <div>
+            <label>file1:</label>
+            <input type="file" name="file" value=""/>
+        </div>
+        <div>
+            <label>file2:</label>
+            <input type="file" name="file" value=""/>
+        </div>
+        <div>
+            <label>file3:</label>
+            <input type="file" name="file" value=""/>
+        </div>
+        <div>
+            <button type="submit">Upload</button>
+        </div>
+    </form>
+
+</body>
+
+</html>
