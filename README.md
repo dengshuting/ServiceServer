@@ -8,19 +8,19 @@ Server of the localization system.
 
 2. Build and run:
 
-    - Foreground
+    - foreground
 
         ```sh
         $ python server.py
         ```
 
-    - Background
+    - background
 
         ```sh
         $ python deploy.py
         ```
 
-3. The application should be available at http://localhost:8000/gyl
+3. The application should be available at http://localhost:8080
 
 ## License
 
