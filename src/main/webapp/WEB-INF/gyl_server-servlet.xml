@@ -17,6 +17,10 @@
 
     <mvc:resources mapping="/upload_files/**" location="/upload_files/" />
 
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="Messages" />
+    </bean>
+
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="2000000" /><!-- 2M -->
@@ -54,5 +58,7 @@
         <property name="templateEngine" ref="templateEngine" />
         <property name="characterEncoding" value="utf-8" />
     </bean>
+
+    <bean id="exceptionResolver" class="com.getyourlocation.app.gyl_server.web.ExceptionHandler"/>
 
 </beans>
