@@ -12,7 +12,7 @@
 Request URI:
 
 ```
-POST /api/localization
+GET /api/localization
 ```
 
 Request Parameters:

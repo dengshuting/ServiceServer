@@ -80,12 +80,13 @@ public class APIController {
         return result;
     }
 
-    @RequestMapping(path = "/localization", method = RequestMethod.POST)
+    @RequestMapping(path = "/localization", method = RequestMethod.GET)
     public LinkedHashMap<String, Object> localization(
         HttpServletRequest request, HttpServletResponse response) {
         LogUtil.logReq(LOG, request);
         LinkedHashMap<String, Object> result = new LinkedHashMap<String, Object>();
-        result.put("ans", "hello");
+        result.put("x", 136.35);
+        result.put("y", 230.55);
         // TODO 定位
         return result;
     }
