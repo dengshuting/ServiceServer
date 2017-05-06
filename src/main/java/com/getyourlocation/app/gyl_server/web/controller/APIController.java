@@ -79,4 +79,14 @@ public class APIController {
         }
         return result;
     }
+
+    @RequestMapping(path = "/localization", method = RequestMethod.POST)
+    public LinkedHashMap<String, Object> localization(
+        HttpServletRequest request, HttpServletResponse response) {
+        LogUtil.logReq(LOG, request);
+        LinkedHashMap<String, Object> result = new LinkedHashMap<String, Object>();
+        result.put("ans", "hello");
+        // TODO 定位
+        return result;
+    }
 }
