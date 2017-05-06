@@ -1,6 +1,6 @@
 # GYL-Server
 
-Server of the localization system.
+Server of the localization system. [API](./doc/api.md)
 
 ## Installation
 
