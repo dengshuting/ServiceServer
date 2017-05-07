@@ -22,6 +22,12 @@ Server of the localization system. See the [API](./doc/api.md) available.
 
 3. The application should be available at http://localhost:8080
 
+4. Run unit tests:
+
+    ```sh
+    $ mvn clean test
+    ```
+
 ## License
 
 See the [LICENSE](./LICENSE) file for license rights and limitations.

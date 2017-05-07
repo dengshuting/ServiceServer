@@ -15,17 +15,17 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/")
 public class ViewController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ViewController.class);
+    private static final Logger Log = LoggerFactory.getLogger(ViewController.class);
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String index(HttpServletRequest request, HttpServletResponse response) {
-        LogUtil.logReq(LOG, request);
+        LogUtil.logReq(Log, request);
         return "index";
     }
 
     @RequestMapping(path = "/api", method = RequestMethod.GET)
     public String api(HttpServletRequest request, HttpServletResponse response) {
-        LogUtil.logReq(LOG, request);
+        LogUtil.logReq(Log, request);
         return "api";
     }
 
