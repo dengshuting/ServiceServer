@@ -1,5 +1,6 @@
 package com.getyourlocation.app.gyl_server.web.controller;
 
+import com.getyourlocation.app.gyl_server.business.entity.Point;
 import com.getyourlocation.app.gyl_server.util.Algorithm;
 import com.getyourlocation.app.gyl_server.util.LogUtil;
 import org.slf4j.Logger;
@@ -89,10 +90,10 @@ public class APIController {
         @RequestParam(value = "y3") double y3,
         HttpServletRequest request, HttpServletResponse response) {
         LogUtil.logReq(Log, request);
-        double[] ans = Algorithm.triangular(alpha, beta, x1, y1, x2, y2, x3, y3);
+        Point ans = Algorithm.triangular(alpha, beta, new Point(x1, y1), new Point(x2, y2), new Point(x3, y3));
         LinkedHashMap<String, Object> result = new LinkedHashMap<String, Object>();
-        result.put("x", ans[0]);
-        result.put("y", ans[1]);
+        result.put("x", ans.x);
+        result.put("y", ans.y);
         return result;
     }
 }

@@ -1,6 +1,7 @@
 package com.getyourlocation.app.gyl_server.util;
 
 
+import com.getyourlocation.app.gyl_server.business.entity.Point;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,15 +17,15 @@ public class Algorithm {
     private static Random random = new Random();
 
     /**
-     * Triangular positioning algorithm.
+     * Triangular localization algorithm.
      *
-     * @return double[0]: x-coordinate
-     *         double[1]: y-coordinate
+     * @return The user's position
      */
-    public static double[] triangular(double alpha, double beta,
-                                      double x1, double y1,
-                                      double x2, double y2,
-                                      double x3, double y3) {
+    public static Point triangular(double alpha, double beta, Point p1, Point p2, Point p3) {
+        double x1 = p1.x, y1 = p1.y;
+        double x2 = p2.x, y2 = p2.y;
+        double x3 = p3.x, y3 = p3.y;
+
         double a = Math.sqrt((x3 - x2) * (x3 - x2) + (y3 - y2) * (y3 - y2));
         double b = Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
         double theta = Math.toDegrees(Math.acos((x2 * x2 + y2 * y2 - x1 * x2 - y1 * y2 - x2 * x3 - y2 * y3 + x1 * x3 + y1 * y3) / (a * b)));
@@ -41,22 +42,22 @@ public class Algorithm {
         double x = x0 * ((x3 - x2) / a) - y0 * ((y3 - y2) / a) + x2;
         double y = x0 * ((y3 - y2) / a) + y0 * ((x3 - x2) / a) + y2;
 
-        return new double[]{x, y};
+        return new Point(x, y);
     }
 
     /**
      * Return the distance between two 2-dimension points.
      */
-    public static double distance(double[] point1, double[] point2) {
-        double dx = point1[0] - point2[0];
-        double dy = point1[1] - point2[1];
+    public static double distance(Point p1, Point p2) {
+        double dx = p1.x - p2.x;
+        double dy = p1.y - p2.y;
         return Math.sqrt(dx * dx + dy * dy);
     }
 
     /**
      * Return a uniformly distributed variable in the interval [min, max).
      */
-    public static double randomDouble(double min, double max) {
+    public static double randDouble(double min, double max) {
         return random.nextDouble() * (max - min) + min;
     }
 }
