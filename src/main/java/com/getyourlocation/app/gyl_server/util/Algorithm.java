@@ -1,6 +1,9 @@
 package com.getyourlocation.app.gyl_server.util;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Localization algorithms.
  */
@@ -42,5 +45,35 @@ public class Algorithm {
         double dx = point1[0] - point2[0];
         double dy = point1[1] - point2[1];
         return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    public static Map<String, Double> generateData() {
+        Map<String, Double> data = new HashMap<String, Double>();
+        double x1 = 10 * Math.random();
+        double y1 = 10 * Math.random();
+        double x2 = 10 * Math.random();
+        double y2 = 10 * Math.random();
+        double x3 = 10 * Math.random();
+        double y3 = 10 * Math.random();
+        double x = 10 * Math.random();
+        double y = 10 * Math.random();
+        double a = Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+        double b = Math.sqrt((x2 - x3) * (x2 - x3) + (y2 - y3) * (y2 - y3));
+        double c = Math.sqrt((x - x3) * (x - x3) + (y - y3) * (y - y3));
+        double d = Math.sqrt((x - x1) * (x - x1) + (y - y1) * (y - y1));
+        double e = Math.sqrt((x - x2) * (x - x2) + (y - y2) * (y - y2));
+        double alpha = Math.toDegrees(Math.acos((c * c + e * e - b * b) / (2 * c * e)));
+        double beta = Math.toDegrees(Math.acos((d * d + e * e - a * a) / (2 * d * e)));
+        data.put("x1", x1);
+        data.put("y1", y1);
+        data.put("x2", x2);
+        data.put("y2", y2);
+        data.put("x3", x3);
+        data.put("y3", y3);
+        data.put("x", x);
+        data.put("y", y);
+        data.put("alpha", alpha);
+        data.put("beta", beta);
+        return data;
     }
 }
