@@ -19,4 +19,9 @@ public class Point {
     public static Point rand(double min, double max) {
         return new Point(Algorithm.randDouble(min, max), Algorithm.randDouble(min, max));
     }
+
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
 }

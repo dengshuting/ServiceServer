@@ -13,13 +13,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class TriangularTest extends BaseTest {
     private static final Logger Log = LoggerFactory.getLogger(TriangularTest.class);
-    private static final int RANDOM_TEST_COUNT = 100;
+    private static final int RANDOM_TEST_COUNT = 3;
     private static final double MIN_COORD = 0;
     private static final double MAX_COORD = 100;
 
-    @Test
-    public void fixData() throws Exception {
-        Log.info("Fix data:");
+//    @Test
+    public void testFixedData() throws Exception {
+        Log.info("Fixed data:");
         runTriangular(1, new Point(0, 1), 45, 45, new Point(-1, 0), new Point(0, -1), new Point(1, 0));
         runTriangular(2, new Point(0, 1), 60, 60, new Point(-1.732, 0), new Point(0, -1), new Point(1.732, 0));
         runTriangular(3, new Point(-1, 1), 45, 45, new Point(-1, -1), new Point(1, -1), new Point(1, 1));
@@ -28,7 +28,7 @@ public class TriangularTest extends BaseTest {
     }
 
     @Test
-    public void randData() throws Exception {
+    public void testRandomData() throws Exception {
         Log.info("Random data:");
         double totDist = 0, center = (MIN_COORD + MAX_COORD) / 2;
         Point p = new Point(center, center);
@@ -52,8 +52,13 @@ public class TriangularTest extends BaseTest {
         Point ans = Algorithm.triangular(alpha, beta, p1, p2, p3);
         double dist = Algorithm.distance(ans, expect);
         Log.info("#" + cnt);
-        Log.info("   ans: (" + ans.x + ", " + ans.y + ")");
-        Log.info("expect: (" + expect.x + ", " + expect.y + ")");
+        Log.info(" alpha: " + alpha);
+        Log.info("  beta: " + beta);
+        Log.info("point1: " + p1.toString());
+        Log.info("point2: " + p2.toString());
+        Log.info("point3: " + p3.toString());
+        Log.info("   ans: " + ans.toString());
+        Log.info("expect: " + expect.toString());
         Log.info("  dist: " + dist);
         return dist;
     }
