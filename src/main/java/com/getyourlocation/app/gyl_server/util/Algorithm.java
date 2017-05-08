@@ -21,7 +21,7 @@ public class Algorithm {
                                       double x3, double y3) {
         double a = Math.sqrt((x3 - x2) * (x3 - x2) + (y3 - y2) * (y3 - y2));
         double b = Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-//W        double theta = Math.toDegrees(Math.acos((x2 * x2 + y2 * y2 - x1 * x2 - y1 * y2 - x2 * x3 - y2 * y3 + x1 * x3 + y1 * y3) / (a * b)));  // paper
+//        double theta = Math.toDegrees(Math.acos((x2 * x2 + y2 * y2 - x1 * x2 - y1 * y2 - x2 * x3 - y2 * y3 + x1 * x3 + y1 * y3) / (a * b)));  // paper
         double theta = Math.toDegrees(Math.acos(((x3 - x2) * (x1 - x2) + (y3 - y2) * (x3 - x2)) / (a * b)));
 
         double cotA = 1 / Math.tan(Math.toRadians(alpha));
