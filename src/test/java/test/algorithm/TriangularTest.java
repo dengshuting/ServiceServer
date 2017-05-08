@@ -15,9 +15,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class TriangularTest extends BaseTest {
     private static final Logger Log = LoggerFactory.getLogger(TriangularTest.class);
-    private static final int RANDOM_TEST_COUNT = 5;
-    private static final double MIN_COORD = 1;
-    private static final double MAX_COORD = 5;
+    private static final int RANDOM_TEST_COUNT = 100;
+    private static final double MIN_COORD = 0;
+    private static final double MAX_COORD = 100;
     private double totDist = 0;
 
     @Test
@@ -47,7 +47,7 @@ public class TriangularTest extends BaseTest {
             double beta = data.get("beta");
             totDist += runTriangular(i + 1, new double[]{x, y}, alpha, beta, x1, y1, x2, y2, x3, y3);
         }
-        Log.info("Avg dist: " + totDist);
+        Log.info("Avg dist: " + totDist / RANDOM_TEST_COUNT);
     }
 
     private double runTriangular(int cnt, double[] expect,
