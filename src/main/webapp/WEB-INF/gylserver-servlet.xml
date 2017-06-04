@@ -13,12 +13,16 @@
 
     <mvc:annotation-driven/>
 
-    <context:component-scan base-package="com.getyourlocation.app.gyl_server"/>
+    <context:component-scan base-package="com.getyourlocation.app.gylserver"/>
 
     <mvc:resources mapping="/upload_files/**" location="/upload_files/" />
 
-    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basename" value="Messages" />
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>/config.properties</value>
+        </property>
+        <property name="fileEncoding" value="utf-8" />
     </bean>
 
     <bean id="multipartResolver"
@@ -59,6 +63,6 @@
         <property name="characterEncoding" value="utf-8" />
     </bean>
 
-    <bean id="exceptionResolver" class="com.getyourlocation.app.gyl_server.web.ExceptionHandler"/>
+    <bean id="exceptionResolver" class="com.getyourlocation.app.gylserver.web.ExceptionHandler"/>
 
 </beans>

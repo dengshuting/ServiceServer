@@ -1,30 +1,22 @@
 # GYL-Server
 
-Server of the localization system. See the [API](./doc/api.md) available.
+Server of the localization system. See the [APIs](./doc/api.md) available.
 
 ## Installation
 
-1. Download [Maven](http://maven.apache.org/download.cgi).
+- Requirements
 
-2. Build and run:
+    - Maven 3.5.0
 
-    - foreground
+- Run locally
 
-        ```sh
-        $ python server.py
-        ```
+    ```bash
+    $ mvn clean tomcat7:run
+    ```
 
-    - background
+- Run unit tests
 
-        ```sh
-        $ python deploy.py
-        ```
-
-3. The application should be available at http://localhost:8080
-
-4. Run unit tests:
-
-    ```sh
+    ```bash
     $ mvn clean test
     ```
 

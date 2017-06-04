@@ -1,12 +1,12 @@
-# GYL-Server API
+# API
 
 <!-- MarkdownTOC -->
 
-- [三角定位](#%E4%B8%89%E8%A7%92%E5%AE%9A%E4%BD%8D)
+- [三角定位](#三角定位)
 
 <!-- /MarkdownTOC -->
 
-<a name="%E4%B8%89%E8%A7%92%E5%AE%9A%E4%BD%8D"></a>
+<a name="三角定位"></a>
 ### 三角定位
 
 Request URI:

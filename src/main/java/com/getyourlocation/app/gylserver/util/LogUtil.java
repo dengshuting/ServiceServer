@@ -1,4 +1,4 @@
-package com.getyourlocation.app.gyl_server.util;
+package com.getyourlocation.app.gylserver.util;
 
 import org.slf4j.Logger;
 

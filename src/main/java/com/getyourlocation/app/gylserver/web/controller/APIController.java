@@ -1,8 +1,8 @@
-package com.getyourlocation.app.gyl_server.web.controller;
+package com.getyourlocation.app.gylserver.web.controller;
 
-import com.getyourlocation.app.gyl_server.business.entity.Point;
-import com.getyourlocation.app.gyl_server.util.Algorithm;
-import com.getyourlocation.app.gyl_server.util.LogUtil;
+import com.getyourlocation.app.gylserver.business.entity.Point;
+import com.getyourlocation.app.gylserver.util.Algorithm;
+import com.getyourlocation.app.gylserver.util.LogUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;

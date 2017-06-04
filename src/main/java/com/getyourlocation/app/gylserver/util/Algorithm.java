@@ -1,12 +1,10 @@
-package com.getyourlocation.app.gyl_server.util;
+package com.getyourlocation.app.gylserver.util;
 
 
-import com.getyourlocation.app.gyl_server.business.entity.Point;
+import com.getyourlocation.app.gylserver.business.entity.Point;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 /**

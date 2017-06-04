@@ -7,6 +7,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration({"file:src/main/webapp/WEB-INF/gyl_server-servlet.xml"})
+@ContextConfiguration({"file:src/main/webapp/WEB-INF/gylserver-servlet.xml"})
 public abstract class BaseTest {
 }

@@ -1,7 +1,7 @@
 package test.algorithm;
 
-import com.getyourlocation.app.gyl_server.business.entity.Point;
-import com.getyourlocation.app.gyl_server.util.Algorithm;
+import com.getyourlocation.app.gylserver.business.entity.Point;
+import com.getyourlocation.app.gylserver.util.Algorithm;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
