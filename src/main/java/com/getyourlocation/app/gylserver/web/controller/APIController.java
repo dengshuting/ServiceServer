@@ -5,6 +5,7 @@ import com.getyourlocation.app.gylserver.util.Algorithm;
 import com.getyourlocation.app.gylserver.util.LogUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,11 +21,11 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api")
 public class APIController {
-
-    private static final String DIR_UPLOAD = "upload_files";
     private static final Logger Log = LoggerFactory.getLogger(APIController.class);
+    private static final String DIR_UPLOAD = "uploaded_files";
 
-    @RequestMapping(path = "/sum", method = RequestMethod.GET)
+    @RequestMapping(path = "/sum", method = RequestMethod.GET,
+                    produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public LinkedHashMap<String, Object> sum(
         @RequestParam(value = "x", defaultValue = "0") int x,
         @RequestParam(value = "y", defaultValue = "0") int y,
@@ -35,7 +36,8 @@ public class APIController {
         return result;
     }
 
-    @RequestMapping(path = "/product", method = RequestMethod.POST)
+    @RequestMapping(path = "/product", method = RequestMethod.POST,
+                    produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public LinkedHashMap<String, Object> product(
         @RequestParam(value = "x", defaultValue = "0") int x,
         @RequestParam(value = "y", defaultValue = "0") int y,
@@ -46,13 +48,15 @@ public class APIController {
         return result;
     }
 
-    @RequestMapping(path = "/upload", method = RequestMethod.POST)
-    public List<String> upload(
+    @RequestMapping(path = "/upload", method = RequestMethod.POST,
+                    produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public LinkedHashMap<String, Object> upload(
         @RequestParam(value = "file", required = true) MultipartFile[] files,
         @RequestParam(value = "ext", required = false) String ext,
         HttpServletRequest request, HttpServletResponse response) {
         LogUtil.logReq(Log, request);
-        List<String> result = new ArrayList<String>();
+        LinkedHashMap<String, Object> result = new LinkedHashMap<String, Object>();
+        List<String> fileList = new ArrayList<String>();
         for (MultipartFile file : files) {
             if (file.getOriginalFilename().equals("")) {
                 continue;
@@ -73,13 +77,15 @@ public class APIController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            result.add(request.getContextPath() + "/" + DIR_UPLOAD + "/" + fileName);
+            fileList.add(request.getContextPath() + "/" + DIR_UPLOAD + "/" + fileName);
         }
+        result.put("files", fileList);
         return result;
     }
 
-    @RequestMapping(path = "/localization", method = RequestMethod.GET)
-    public LinkedHashMap<String, Object> localization(
+    @RequestMapping(path = "/localize", method = RequestMethod.GET,
+                    produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public LinkedHashMap<String, Object> localize(
         @RequestParam(value = "alpha") double alpha,
         @RequestParam(value = "beta") double beta,
         @RequestParam(value = "x1") double x1,

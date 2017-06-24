@@ -1,15 +1,12 @@
 package com.getyourlocation.app.gylserver.util;
 
-
 import com.getyourlocation.app.gylserver.business.entity.Point;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Random;
 
-/**
- * Localization algorithms.
- */
+
 public class Algorithm {
     private static final Logger Log = LoggerFactory.getLogger(Algorithm.class);
     private static Random random = new Random();

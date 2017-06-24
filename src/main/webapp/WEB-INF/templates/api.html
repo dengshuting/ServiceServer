@@ -6,6 +6,7 @@
 </head>
 <body>
     <form action="/api/sum" method="GET">
+        求和：
         <div>
             <label>x:</label>
             <input type="number" name="x" />
@@ -15,11 +16,13 @@
             <input type="number" name="y" />
         </div>
         <div>
-            <button type="submit">Sum</button>
+            <button type="submit">Submit</button>
         </div>
     </form>
     <br />
+
     <form action="/api/product" method="POST">
+        求积：
         <div>
             <label>x:</label>
             <input type="number" name="x" />
@@ -29,11 +32,13 @@
             <input type="number" name="y" />
         </div>
         <div>
-            <button type="submit">Product</button>
+            <button type="submit">Submit</button>
         </div>
     </form>
     <br />
+
     <form action="/api/upload" method="POST" enctype="multipart/form-data" >
+        上传文件：
         <div>
             <label>file1:</label>
             <input type="file" name="file" value=""/>
@@ -47,8 +52,49 @@
             <input type="file" name="file" value=""/>
         </div>
         <div>
-            <button type="submit">Upload</button>
+            <button type="submit">Submit</button>
         </div>
     </form>
+    <br />
+
+    <form action="/api/localize" method="GET">
+        三角定位：
+        <div>
+            <label>alpha:</label>
+            <input type="text" name="alpha" />
+        </div>
+        <div>
+            <label>beta:</label>
+            <input type="text" name="beta" />
+        </div>
+        <div>
+            <label>x1:</label>
+            <input type="text" name="x1" />
+        </div>
+        <div>
+            <label>y1:</label>
+            <input type="text" name="y1" />
+        </div>
+        <div>
+            <label>x2:</label>
+            <input type="text" name="x2" />
+        </div>
+        <div>
+            <label>y2:</label>
+            <input type="text" name="y2" />
+        </div>
+        <div>
+            <label>x3:</label>
+            <input type="text" name="x3" />
+        </div>
+        <div>
+            <label>y3:</label>
+            <input type="text" name="y3" />
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    <br />
 </body>
 </html>
