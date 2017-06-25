@@ -83,9 +83,22 @@ public class APIController {
         return result;
     }
 
+    @RequestMapping(path = "/shop-location", method = RequestMethod.POST,
+                    produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public LinkedHashMap<String, Object> shopLocation(
+        @RequestParam(value = "img", required = true) MultipartFile img,
+        HttpServletRequest request, HttpServletResponse response) {
+        LogUtil.logReq(Log, request);
+        // TODO POST /api/shop-location
+        LinkedHashMap<String, Object> result = new LinkedHashMap<String, Object>();
+        result.put("x", 0);
+        result.put("y", 0);
+        return result;
+    }
+
     @RequestMapping(path = "/positioning", method = RequestMethod.GET,
                     produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public LinkedHashMap<String, Object> localize(
+    public LinkedHashMap<String, Object> positioning(
         @RequestParam(value = "alpha") double alpha,
         @RequestParam(value = "beta") double beta,
         @RequestParam(value = "x1") double x1,
