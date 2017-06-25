@@ -11,7 +11,7 @@ import test.BaseTest;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
-
+@Ignore
 public class TriangularTest extends BaseTest {
     private static final Logger Log = LoggerFactory.getLogger(TriangularTest.class);
     private static final int RANDOM_TEST_COUNT = 1000;
@@ -20,7 +20,6 @@ public class TriangularTest extends BaseTest {
     private static final double ORIGIN_OFFSET = 50;
 
     @Test
-    @Ignore
     public void testFixedData() throws Exception {
         Log.info("Fixed data:");
         runTriangular(1, new Point(0, 1), 45, 45, new Point(-1, 0), new Point(0, -1), new Point(1, 0));

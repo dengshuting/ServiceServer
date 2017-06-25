@@ -1,4 +1,4 @@
-# GYL-Server
+# GYL-Server [![Build Status](https://travis-ci.org/GetYourLocation/GYL-Server.svg?branch=master)](https://travis-ci.org/GetYourLocation/GYL-Server)
 
 Server that provides RESTful services of GetYourLocation system. See the [APIs](https://github.com/GetYourLocation/Documentation/blob/master/doc/api.md) available.
 
