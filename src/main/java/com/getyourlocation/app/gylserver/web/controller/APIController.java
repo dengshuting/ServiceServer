@@ -83,7 +83,7 @@ public class APIController {
         return result;
     }
 
-    @RequestMapping(path = "/localize", method = RequestMethod.GET,
+    @RequestMapping(path = "/positioning", method = RequestMethod.GET,
                     produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public LinkedHashMap<String, Object> localize(
         @RequestParam(value = "alpha") double alpha,
