@@ -1,6 +1,6 @@
 # GYL-Server
 
-Server of the localization system. See the [APIs](https://github.com/GetYourLocation/Documentation/blob/master/doc/api.md) available.
+Server that provides RESTful services of GetYourLocation system. See the [APIs](https://github.com/GetYourLocation/Documentation/blob/master/doc/api.md) available.
 
 ## Installation
 
