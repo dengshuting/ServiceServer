@@ -1,6 +1,6 @@
-package com.getyourlocation.app.gylserver.business.entity;
+package com.getyourlocation.app.serviceserver.business.entity;
 
-import com.getyourlocation.app.gylserver.util.Algorithm;
+import com.getyourlocation.app.serviceserver.util.Algorithm;
 
 
 /**

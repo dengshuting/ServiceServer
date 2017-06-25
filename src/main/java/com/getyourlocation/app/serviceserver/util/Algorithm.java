@@ -1,6 +1,6 @@
-package com.getyourlocation.app.gylserver.util;
+package com.getyourlocation.app.serviceserver.util;
 
-import com.getyourlocation.app.gylserver.business.entity.Point;
+import com.getyourlocation.app.serviceserver.business.entity.Point;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

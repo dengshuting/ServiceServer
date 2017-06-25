@@ -1,4 +1,4 @@
-package com.getyourlocation.app.gylserver.web;
+package com.getyourlocation.app.serviceserver.web;
 
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
