@@ -9,9 +9,15 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
+import javax.imageio.stream.FileImageInputStream;
+import javax.imageio.stream.FileImageOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.MemoryImageSource;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -89,10 +95,14 @@ public class APIController {
         @RequestParam(value = "img", required = true) MultipartFile img,
         HttpServletRequest request, HttpServletResponse response) {
         LogUtil.logReq(Log, request);
-        // TODO POST /api/shop-location
+        byte[] imgByte = null;
+        try {
+            imgByte = img.getBytes();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         LinkedHashMap<String, Object> result = new LinkedHashMap<String, Object>();
-        result.put("x", 0);
-        result.put("y", 0);
+        result.put("imgByte", imgByte);
         return result;
     }
 
