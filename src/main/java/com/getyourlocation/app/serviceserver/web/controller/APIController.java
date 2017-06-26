@@ -98,11 +98,13 @@ public class APIController {
         byte[] imgByte = null;
         try {
             imgByte = img.getBytes();
+            // TODO socket
         } catch (IOException e) {
             e.printStackTrace();
         }
         LinkedHashMap<String, Object> result = new LinkedHashMap<String, Object>();
-        result.put("imgByte", imgByte);
+        result.put("x", 0);
+        result.put("y", 0);
         return result;
     }
 
