@@ -3,6 +3,7 @@ package com.getyourlocation.app.serviceserver.web.controller;
 import com.getyourlocation.app.serviceserver.business.entity.Point;
 import com.getyourlocation.app.serviceserver.util.Algorithm;
 import com.getyourlocation.app.serviceserver.util.LogUtil;
+import com.getyourlocation.app.serviceserver.util.GetShopLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
@@ -95,16 +96,19 @@ public class APIController {
         @RequestParam(value = "img", required = true) MultipartFile img,
         HttpServletRequest request, HttpServletResponse response) {
         LogUtil.logReq(Log, request);
-        byte[] imgByte = null;
+        byte[] imgByte = new byte[8*1024*1024];
+        Point p = null;
         try {
             imgByte = img.getBytes();
             // TODO socket
+            p = GetShopLocation.GetShopLocation(imgByte);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
         LinkedHashMap<String, Object> result = new LinkedHashMap<String, Object>();
-        result.put("x", 0);
-        result.put("y", 0);
+        result.put("x", p.x);
+        result.put("y", p.y);
         return result;
     }
 
