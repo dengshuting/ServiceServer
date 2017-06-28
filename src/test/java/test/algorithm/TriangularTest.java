@@ -11,10 +11,10 @@ import test.BaseTest;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
-@Ignore
+
 public class TriangularTest extends BaseTest {
     private static final Logger Log = LoggerFactory.getLogger(TriangularTest.class);
-    private static final int RANDOM_TEST_COUNT = 1000;
+    private static final int RANDOM_TEST_COUNT = 100;
     private static final double MIN_RADIUS = 1;
     private static final double MAX_RADIUS = 1000;
     private static final double ORIGIN_OFFSET = 50;
