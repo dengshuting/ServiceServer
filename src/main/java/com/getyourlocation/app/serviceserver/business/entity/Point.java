@@ -25,12 +25,16 @@ public class Point {
      * coordinate.
      */
     public Point(double arg1, double arg2, boolean polar) {
-        if (polar) {
-            this.x = arg1 * Math.cos(Math.toRadians(arg2));
-            this.y = arg1 * Math.sin(Math.toRadians(arg2));
-        } else {
-            this.x = arg1;
-            this.y = arg2;
+        if (Double.isNaN(arg1) || Double.isNaN(arg2)) {
+            this.x = this.y = 0;
+        } else{
+            if (polar) {
+                this.x = arg1 * Math.cos(Math.toRadians(arg2));
+                this.y = arg1 * Math.sin(Math.toRadians(arg2));
+            } else {
+                this.x = arg1;
+                this.y = arg2;
+            }
         }
     }
 
