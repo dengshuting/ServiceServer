@@ -96,16 +96,12 @@ public class APIController {
         @RequestParam(value = "img", required = true) MultipartFile img,
         HttpServletRequest request, HttpServletResponse response) {
         LogUtil.logReq(Log, request);
-        byte[] imgByte = new byte[8*1024*1024];
-        Point p = null;
-        try {
-            imgByte = img.getBytes();
-            // TODO socket
-            p = GetShopLocation.GetShopLocation(imgByte);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Point p = new Point(0, 0);
+//        try {
+//            p = GetShopLocation.GetShopLocation(img.getBytes());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         LinkedHashMap<String, Object> result = new LinkedHashMap<String, Object>();
         result.put("x", p.x);
         result.put("y", p.y);
