@@ -1,23 +1,16 @@
 package com.getyourlocation.app.serviceserver.web.controller;
 
 import com.getyourlocation.app.serviceserver.business.entity.Point;
-import com.getyourlocation.app.serviceserver.util.Algorithm;
+import com.getyourlocation.app.serviceserver.util.PositionUtil;
 import com.getyourlocation.app.serviceserver.util.LogUtil;
-import com.getyourlocation.app.serviceserver.util.GetShopLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.imageio.ImageIO;
-import javax.imageio.stream.FileImageInputStream;
-import javax.imageio.stream.FileImageOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.awt.image.MemoryImageSource;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -96,15 +89,16 @@ public class APIController {
         @RequestParam(value = "img", required = true) MultipartFile img,
         HttpServletRequest request, HttpServletResponse response) {
         LogUtil.logReq(Log, request);
-        Point p = new Point(0, 0);
-//        try {
-//            p = GetShopLocation.GetShopLocation(img.getBytes());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        Point loc = null;
+        try {
+            loc = PositionUtil.getShopLocation(img.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+            loc = new Point();
+        }
         LinkedHashMap<String, Object> result = new LinkedHashMap<String, Object>();
-        result.put("x", p.x);
-        result.put("y", p.y);
+        result.put("x", loc.x);
+        result.put("y", loc.y);
         return result;
     }
 
@@ -121,7 +115,7 @@ public class APIController {
         @RequestParam(value = "y3") double y3,
         HttpServletRequest request, HttpServletResponse response) {
         LogUtil.logReq(Log, request);
-        Point ans = Algorithm.triangular(alpha, beta, new Point(x1, y1), new Point(x2, y2), new Point(x3, y3));
+        Point ans = PositionUtil.triangular(alpha, beta, new Point(x1, y1), new Point(x2, y2), new Point(x3, y3));
         LinkedHashMap<String, Object> result = new LinkedHashMap<String, Object>();
         result.put("x", ans.x);
         result.put("y", ans.y);

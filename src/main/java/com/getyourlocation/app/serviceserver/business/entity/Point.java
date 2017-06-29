@@ -1,6 +1,6 @@
 package com.getyourlocation.app.serviceserver.business.entity;
 
-import com.getyourlocation.app.serviceserver.util.Algorithm;
+import com.getyourlocation.app.serviceserver.util.PositionUtil;
 
 
 /**
@@ -59,7 +59,7 @@ public class Point {
      * Generate a point with random coordinates.
      */
     public static Point rand(double min, double max) {
-        return new Point(Algorithm.randDouble(min, max), Algorithm.randDouble(min, max));
+        return new Point(PositionUtil.randDouble(min, max), PositionUtil.randDouble(min, max));
     }
 
     @Override
