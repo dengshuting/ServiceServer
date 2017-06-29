@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class PositionUtil {
     private static final Logger Log = LoggerFactory.getLogger(PositionUtil.class);
-    private static final String POSITION_SERVER_HOST = "192.168.199.125";
+    private static final String POSITION_SERVER_HOST = "localhost";
     private static final int POSITION_SERVER_PORT = 8000;
     private static final int SOCKET_OUTPUT_SIZE = 8 * 1024 * 1024;  // Bytes
     private static final int SOCKET_INPUT_SIZE = 8;  // Bytes
